@@ -1,0 +1,106 @@
+{
+    "name": "iFilms Movie Bot",
+    "description": "When You Will Send File On Telegram Channel Of This Bot, It Will Save That In Database. So, You Can Search That Easily In Inline Mode.",
+    "stack": "container",
+    "keywords": [
+      "telegram",
+      "auto-filter",
+      "filter",
+      "best",
+      "indian",
+      "pyrogram",
+      "media",
+      "search",
+      "channel",
+      "index",
+      "inline"
+    ],
+    "website": "https://github.com/iFilmsBotz/IMSB",
+    "repository": "https://github.com/iFilmsBotz/IMSB",
+    "env": {
+        "BOT_TOKEN": {
+            "description": "Your Bot Token. Get from @BotFather.",
+            "value": "1989381430:AAFMBCqGkK5TEMqZe7OMy70pPQnakTuI-hM",
+            "required": true
+        },
+        "API_ID": {
+            "description": "Get this value from https://my.telegram.org",
+            "value": "7185665",
+            "required": true
+        },
+        "API_HASH": {
+            "description": "Get this value from https://my.telegram.org",
+            "value": "d87fe425a8127e5e64e30cb29cb64ff5",
+            "required": true
+        },
+        "CHANNELS": {
+            "description": "Username or ID of channel or group. Separate multiple IDs by space.",
+            "value": "-1001512591839 -1001740810830 -1001553525090",
+            "required": false
+        },
+        "ADMINS": {
+            "description": "Username or ID of Admin. Separate multiple Admins by space.",
+            "value": "1901499449",
+            "required": true
+        },
+        "PICS": {
+            "description": "Add some telegraph link of pictures .",
+            "value": "https://telegra.ph/file/15c36ca967001265c41b4.jpg",
+            "required": false
+        },
+        "LOG_CHANNEL": {
+            "description": "Bot Logs, Give a channel id with -100xxxxxxx",
+            "value": "-1001649816433",
+            "required": true
+        },
+        "AUTH_USERS": {
+            "description": "Username or ID of users to give access of inline search. Separate multiple users by space.\nLeave it empty if you don't want to restrict bot usage.",
+            "required": false
+        },
+        "SPELL_CHECK_REPLY": {
+            "description": "Username or ID of users to give access of inline search. Separate multiple users by space.\nLeave it empty if you don't want to restrict bot usage.",
+            "value": "True",
+            "required": false
+        },
+        "AUTH_CHANNEL": {
+            "description": "ID of channel.Make sure bot is admin in this channel. Without subscribing this channel users cannot use bot.",
+            "value": "-1001668257871",
+            "required": false
+        },
+        "DATABASE_URI": {
+            "description": "mongoDB URI. Get this value from https://www.mongodb.com.",
+            "value": "mongodb+srv://iFilms_Screenshot:iFilms_Screenshot@cluster0.5zgpv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+            "required": true
+        },
+        "DATABASE_NAME": {
+            "description": "Name of the database in mongoDB.",
+            "value": "Cluster0",
+            "required": false
+        },
+        "UPSTREAM_REPO": {
+            "description": "NOT MANDATORY",
+            "value": "https://iflilmsbotz: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@github.com/ifilmsbotz/imsb",
+            "required": false
+        },
+        "FILE_STORE_CHANNEL": {
+            "description": "NOT MANDATORY",
+            "value": "-1001698331977",
+            "required": false
+        },
+        "COLLECTION_NAME": {
+            "description": "Name of the collections. Defaults to Telegram_files. If you are using the same database, then use different collection name for each bot",
+            "value": "Telegram_files",
+            "required": false
+        }
+    },
+    "addons": [],
+    "buildpacks": [{
+        "url": "heroku/python"
+    }],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
+}
