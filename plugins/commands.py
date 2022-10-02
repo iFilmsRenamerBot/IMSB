@@ -530,7 +530,7 @@ async def save_template(client, message):
     await save_group_settings(grp_id, 'template', template)
     await sts.edit(f"Successfully changed template for {title} to\n\n{template}")
     
-@Client.on_message(filters.command('roll') & filters.incoming &~ filters.edited)
+@Client.on_message(filters.command('roll') & filters.incoming)
 async def game_dice(bot, msg):
     try:
         await bot.send_dice(
@@ -541,7 +541,7 @@ async def game_dice(bot, msg):
     except Exception:
         pass
         
-@Client.on_message(filters.command('football') & filters.incoming &~ filters.edited)
+@Client.on_message(filters.command('football') & filters.incoming)
 async def game_football(bot, msg):
     try:
         await bot.send_dice(
@@ -552,7 +552,7 @@ async def game_football(bot, msg):
     except Exception:
         pass
 
-@Client.on_message(filters.command('basketball') & filters.incoming &~ filters.edited)
+@Client.on_message(filters.command('basketball') & filters.incoming)
 async def game_basketball(bot, msg):
     try:
         await bot.send_dice(
@@ -563,7 +563,7 @@ async def game_basketball(bot, msg):
     except Exception:
         pass
 
-@Client.on_message(filters.command('throw') & filters.incoming &~ filters.edited)
+@Client.on_message(filters.command('throw') & filters.incoming)
 async def game_dart(bot, msg):
     try:
         await bot.send_dice(
@@ -574,7 +574,7 @@ async def game_dart(bot, msg):
     except Exception:
         pass
 
-@Client.on_message(filters.command('luck') & filters.incoming &~ filters.edited)
+@Client.on_message(filters.command('luck') & filters.incoming)
 async def game_luck(bot, msg):
     try:
         await bot.send_dice(
@@ -586,7 +586,7 @@ async def game_luck(bot, msg):
         pass
 
 
-@Client.on_message(filters.command('bowling') & filters.incoming &~ filters.edited)
+@Client.on_message(filters.command('bowling') & filters.incoming)
 async def game_bowling(bot, msg):
     try:
         await bot.send_dice(
