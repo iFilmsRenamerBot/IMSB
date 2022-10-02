@@ -3,7 +3,7 @@
 from info import ADMINS
 from Script import script
 from time import time, sleep
-from pyrogram import Client, filters
+from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
 from pyrogram.errors.exceptions.bad_request_400 import ChatAdminRequired, UserAdminInvalid
@@ -12,7 +12,7 @@ from pyrogram.errors.exceptions.bad_request_400 import ChatAdminRequired, UserAd
 @Client.on_message(filters.incoming & ~filters.private & filters.command('inkick') & filters.user(ADMINS))
 def inkick(client, message):
   user = client.get_chat_member(message.chat.id, message.from_user.id)
-  if user.status == ("creator"):
+  if user.status == (enums.ChatMemberStatus.OWNER):
     if len(message.command) > 1:
       input_str = message.command
       sent_message = message.reply_text(script.START_KICK)
@@ -21,7 +21,7 @@ def inkick(client, message):
       message.delete()
       count = 0
       for member in client.iter_chat_members(message.chat.id):
-        if member.user.status in input_str and not member.status in ('administrator', 'creator'):
+        if member.user.status in input_str and not member.status in (enums.ChatMemberStatus.ADMINISTRATOR, enums.ChatMemberStatus.OWNER):
           try:
             client.kick_chat_member(message.chat.id, member.user.id, int(time() + 45))
             count += 1
