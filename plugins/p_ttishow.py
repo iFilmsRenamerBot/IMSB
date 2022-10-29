@@ -165,7 +165,7 @@ async def get_ststs(bot, message):
             text=script.STATUS_TXT.format(files, total_users, totl_chats, size, free),
             disable_web_page_preview=True,
             reply_markup=reply_markup,
-            parse_mode='html'
+            parse_mode=enums.ParseMode.HTML
         )
 
     await asyncio.sleep(30)
